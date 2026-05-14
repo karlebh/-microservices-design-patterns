@@ -32,6 +32,11 @@ return [
 
     'connections' => [
 
+        'duckdb' => [
+            'driver'   => 'duckdb',
+            'database' => storage_path('app/analytics.duckdb'),
+        ],
+
         'sqlite' => [
             'driver' => 'sqlite',
             'url' => env('DB_URL'),
@@ -46,6 +51,20 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
+
+            'read' => [
+                'host' => [
+                    env('DB_READ_HOST_1', '127.0.0.1'),
+                    env('DB_READ_HOST_2', '127.0.0.1'), // add as many replicas as you have
+                ],
+            ],
+
+            'write' => [
+                'host' => [env('DB_WRITE_HOST', '127.0.0.1')],
+            ],
+
+            'sticky' => true,
+
             'url' => env('DB_URL'),
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '3306'),
@@ -62,6 +81,8 @@ return [
             'options' => extension_loaded('pdo_mysql') ? array_filter([
                 (PHP_VERSION_ID >= 80500 ? Mysql::ATTR_SSL_CA : PDO::MYSQL_ATTR_SSL_CA) => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
+
+
         ],
 
         'mariadb' => [
@@ -86,6 +107,20 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
+
+            'read' => [
+                'host' => [
+                    env('DB_READ_HOST_1', '127.0.0.1'),
+                    env('DB_READ_HOST_2', '127.0.0.1'), // add as many replicas as you have
+                ],
+            ],
+
+            'write' => [
+                'host' => [env('DB_WRITE_HOST', '127.0.0.1')],
+            ],
+
+            'sticky' => true,
+
             'url' => env('DB_URL'),
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '5432'),
@@ -101,6 +136,16 @@ return [
 
         'sqlsrv' => [
             'driver' => 'sqlsrv',
+            'read' => [
+                'host' => [
+                    env('DB_READ_HOST_1', '127.0.0.1'),
+                    env('DB_READ_HOST_2', '127.0.0.1'), // add as many replicas as you have
+                ],
+            ],
+            'write' => [
+                'host' => [env('DB_WRITE_HOST', '127.0.0.1')],
+            ],
+            'sticky' => true,
             'url' => env('DB_URL'),
             'host' => env('DB_HOST', 'localhost'),
             'port' => env('DB_PORT', '1433'),
@@ -149,7 +194,7 @@ return [
 
         'options' => [
             'cluster' => env('REDIS_CLUSTER', 'redis'),
-            'prefix' => env('REDIS_PREFIX', Str::slug((string) env('APP_NAME', 'laravel')).'-database-'),
+            'prefix' => env('REDIS_PREFIX', Str::slug((string) env('APP_NAME', 'laravel')) . '-database-'),
             'persistent' => env('REDIS_PERSISTENT', false),
         ],
 

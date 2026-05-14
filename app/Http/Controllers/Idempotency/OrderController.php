@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Indempotency;
+namespace App\Http\Controllers\Idempotency;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
