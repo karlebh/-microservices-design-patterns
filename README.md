@@ -1,58 +1,138 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+## This Repository is a playground to try out a lot of methodologies employed in backend development, microsevices design patterns and distribted system.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+I shall do my best to cover the below and more:
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Data Consistency, Events, & Distributed Transactions
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Transactional Outbox Pattern
+- Idempotent Consumer / Idempotency Keys
+- Saga Pattern (Choreography & Orchestration)
+- Event Sourcing
+- CQRS (Command Query Responsibility Segregation)
+- Two-Phase Commit (2PC) / Three-Phase Commit (3PC)
+- Compensating Transactions
+- Distributed Locks (Redlock, Chubby)
+- At-Least-Once, At-Most-Once, and Exactly-Once Delivery Semantics
+- Publish-Subscribe Patterns & Event Notifications vs Event-Carried State Transfer
+- Event Streaming vs Message Queuing
+- Outbox + CDC Integration
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Messaging & Event-Driven Architecture
 
-## Learning Laravel
+- Message Brokers Deep Dive (Kafka, Pulsar, RabbitMQ, NATS, ActiveMQ)
+- Competing Consumers & Partitioned Processing
+- Request-Reply over Async Messaging
+- Message Ordering Guarantees (per-key, global)
+- Event-Driven Architecture Best Practices
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Microservices & Decomposition Patterns
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- Domain-Driven Design (DDD): Bounded Contexts, Aggregates, Ubiquitous Language
+- Strangler Fig Pattern
+- Backend-for-Frontend (BFF)
+- API Composition vs. Database per Service
+- Micro-frontend Architecture
+- Service Granularity Trade-offs & Decomposition Strategies
+- Independent Deployability & Evolutionary Architecture
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+### Fault Tolerance & Resilience Architecture
 
-## Agentic Development
+- Circuit Breaker Pattern
+- Bulkhead Isolation Pattern
+- Dead Letter Queues (DLQ) & Poison Pill Handling
+- Exponential Backoff with Jitter Retries
+- Rate Limiting (Token Bucket, Leaking Bucket, Sliding Window Log, Fixed Window)
+- Load Shedding & Request Throttling
+- Graceful Degradation / Fallbacks
+- Chaos Engineering (Fault Injection)
+- Failover & Active-Active / Active-Passive Clustering
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+### Data Architecture, Scaling, & Storage
 
-```bash
-composer require laravel/boost --dev
+- Database Sharding & Horizontal Partitioning
+- Consistent Hashing
+- Change Data Capture (CDC)
+- Write-Ahead Logging (WAL)
+- Log-Structured Merge-trees (LSM Trees) vs B-Trees
+- Read Replicas & CQRS-driven Data Synchronization
+- Cache Aside, Write-Through, Write-Back, and Refresh-Ahead Caching
+- Cache Stampede / Thundering Herd Mitigation
+- Vector Databases & Similarity Search (HNSW, IVF-Flat)
+- Data Lakehouse (Iceberg, Hudi, Delta Lake)
+- Materialized Views & Incremental Computation
 
-php artisan boost:install
-```
+### Big Data, Streaming & Analytics
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+- Kappa vs. Lambda Architecture
+- Stream Processing (Flink, Spark Streaming, ksqlDB, Beam)
+- OLAP vs. OLTP vs. HTAP
+- Feature Stores
 
-## Contributing
+### Distributed Coordination & Network Protocols
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- Consensus Algorithms (Raft, Paxos, Zab)
+- Gossip Protocol & Cluster Membership
+- Heartbeating & Lease Mechanisms
+- Vector Clocks & Lamport Timestamps (Logical Time)
+- CAP Theorem & PACELC Theorem Trade-offs
+- Leader Election Algorithms (Bully, Raft-based, ZooKeeper)
+- Fencing Tokens & Epoch Numbers
+- Quorum Systems
+- CRDTs (Conflict-free Replicated Data Types)
+- Tombstones & Version Vectors
+- gRPC, Protocol Buffers, and FlatBuffers
+- WebSockets, Server-Sent Events (SSE), and HTTP/3 (QUIC)
+- TCP Flow Control, Congestion Control, and Window Scaling
 
-## Code of Conduct
+### Networking, Service Discovery & Traffic Management
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- Service Discovery (Consul, Eureka, DNS-based)
+- Client-Side Load Balancing vs Server-Side
+- Traffic Shifting, Mirroring, Shadowing
+- mTLS + SPIFFE/SPIRE
 
-## Security Vulnerabilities
+### Security, Identity, & Governance
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- OAuth 2.1, OIDC (OpenID Connect), and SAML
+- Zero Trust Architecture & Microsegmentation
+- Mutual TLS (mTLS) Authentication
+- JWT (JSON Web Token) Revocation Strategies (Blacklisting, Refresh Token Rotation)
+- Role-Based Access Control (RBAC) & Attribute-Based Access Control (ABAC)
+- Data Anonymization, Pseudonymization, and Tokenization
+- Encryption at Rest, in Transit, and in Use (Confidential Computing)
+- Secrets Management
+- Data Residency & Sovereignty
+- Supply Chain Security (SBOM, SLSA)
+- Audit Logging & Immutable Logs
 
-## License
+### Infrastructure, Deployment, & Observability
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- Blue-Green Deployments & Canary Releases
+- Service Mesh Architecture (Sidecar Pattern)
+- Distributed Tracing (OpenTelemetry, W3C Trace Context)
+- Structured Logging & Log Aggregation
+- Metric Cardinality Optimization
+- API Gateways (Dynamic Routing, SSL Termination, Request Transformation)
+- Edge Computing & Global Server Load Balancing (GSLB)
+- Observability Pipelines (Metrics, Logs, Traces correlation)
+- Synthetic Monitoring & Real User Monitoring (RUM)
+
+### Reliability, SRE & Operations
+
+- Error Budgets & SLOs/SLIs/SLAs
+- Alert Fatigue Reduction & On-call Best Practices
+- Postmortem Culture & Blameless Analysis
+- Probe-based Health Checks
+
+### Cost, Sustainability & Modern Topics
+
+- FinOps & Cloud Cost Optimization
+- Resource Quotas & Multi-tenancy
+- Carbon-aware Computing
+- Capacity Planning & Predictive Scaling
+- eBPF-based Observability & Networking
+- WebAssembly (Wasm) in Edge/Serverless
+- Formal Verification & TLA+
+- GitOps & Progressive Delivery
