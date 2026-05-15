@@ -1,4 +1,4 @@
-## This Repository is a playground to try out a lot of methodologies employed in backend development, microsevices design patterns and distribted system.
+## This Repository is a playground to try out a lot of methodologies employed in backend development, microservice design (patterns), and distributed systems.
 
 I shall do my best to cover the below and more:
 
