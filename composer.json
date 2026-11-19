@@ -12,6 +12,7 @@
         "php": "^8.3",
         "laravel/framework": "^13.0",
         "laravel/tinker": "^3.0",
+        "nmred/kafka-php": "^0.1.6",
         "satur.io/duckdb-auto": "^2.1"
     },
     "require-dev": {
@@ -26,6 +27,7 @@
     "autoload": {
         "psr-4": {
             "App\\": "app/",
+            "Patterns\\": "src/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
         }
